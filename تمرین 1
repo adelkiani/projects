@@ -1,0 +1,42 @@
+class Program // تمرین 1 (دریافت عدد و تشخیص دادن روز و ماه)1
+{
+    static void Main()
+    {
+        // تعریف آرایه‌ای از روزهای هر ماه در سال شمسی
+        int[] monthsDays = { 31, 31, 31, 30, 31, 30, 31, 31, 30, 31, 30, 29 }; // ماه‌های شمسی (سال کبیسه)
+
+        // دریافت ورودی از کاربر
+        Console.Write("enter a number:");
+        int dayOfYear = int.Parse(Console.ReadLine());
+
+        // بررسی اعتبار ورودی
+        if (dayOfYear < 1 || dayOfYear > 366)
+        {
+            Console.WriteLine("Error");
+            Console.Beep();
+            return;
+        }
+
+        // متغیر برای ذخیره شماره ماه
+        int month = 0;
+        int dayOfMonth = dayOfYear;
+
+        // پیدا کردن ماه و روز مربوطه به عدد دریافتی
+        for (int i = 0; i < monthsDays.Length; i++)
+        {
+            if (dayOfMonth <= monthsDays[i])
+            {
+                month = i + 1;
+                dayOfMonth = dayOfMonth;
+                break;
+            }
+            else
+            {
+                dayOfMonth -= monthsDays[i];
+            }
+        }
+
+        // نمایش نتیجه
+        Console.WriteLine($"This day falls in month {month} and day {dayOfMonth} of the month . ");
+    }
+}
