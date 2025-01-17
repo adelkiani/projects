@@ -1,0 +1,46 @@
+// تمرین 2 (بررسی اعداد اول) 2
+
+// دریافت عدد 
+int number = 0;
+bool isValid = false;
+
+        // استفاده از یک حلقه برای اطمینان از وارد کردن عدد صحیح
+        while (!isValid)
+        {
+            Console.Write("Please Enter a num : ");
+            string input = Console.ReadLine();
+
+            // بررسی اینکه ورودی عددی صحیح است یا خیر
+            isValid = int.TryParse(input, out number);
+
+            if (!isValid)
+            {
+                Console.WriteLine("Error.");
+                Console.Beep();
+            }
+        }
+
+        // بررسی عدد اول بودن
+        if (IsPrime(number))
+        {
+            Console.WriteLine($"{number} is a prime num.");
+        }
+        else
+        {
+            Console.WriteLine($"{number} is not a prime num.");
+        }
+    
+    // متد برای بررسی اول بودن عدد
+    static bool IsPrime(int num)
+    {
+        if (num <= 1)
+            return false; // عددهای کمتر یا مساوی 1 اول نیستند
+
+        for (int i = 2; i <= Math.Sqrt(num); i++)
+        {
+            if (num % i == 0)
+                return false; // اگر عدد بر i بخش‌پذیر باشد، عدد اول نیست
+        }
+
+        return true; // در غیر این  صورت، عدد اول است
+    }
