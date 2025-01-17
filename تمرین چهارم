@@ -1,0 +1,11 @@
+    {
+        Console.WriteLine("Even numbers from 1 to 20 are:");
+        
+        for (int i = 1; i <= 20; i++) // اعداد 1 تا 20
+        {
+            if (i % 2 == 0) // بررس میکند که آیا عدد زوج است
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
