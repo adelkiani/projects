@@ -1,0 +1,32 @@
+class Program //پروژه اصلی 
+{
+    static List<int> FindCommonElements(int[] arr1, int[] arr2)
+    {
+        // تبدیل آرایه‌ها به مجموعه‌ها (Set)
+        HashSet<int> set1 = new HashSet<int>(arr1);
+        HashSet<int> set2 = new HashSet<int>(arr2);
+
+        // استفاده از عملیات intersection برای پیدا کردن عناصر مشترک
+        set1.IntersectWith(set2);
+
+        // تبدیل نتیجه به لیست و برکشت دادن آن
+        return new List<int>(set1);
+    }
+
+    static void Main()
+    {
+        // تعریف دو آرایه نمونه
+        int[] arr1 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int[] arr2 = { 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+
+        // پیدا کردن عناصر مشترک
+        List<int> commonElements = FindCommonElements(arr1, arr2);
+
+        // چاپ نتیجه
+        Console.WriteLine("Common elements: ");
+        foreach (int element in commonElements)
+        {
+            Console.WriteLine(element);
+        }
+    }
+}
